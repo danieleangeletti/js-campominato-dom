@@ -2,6 +2,8 @@ const empty_array = [];
 
 let isGameRunning = true;
 
+let score = 0;
+
 while (empty_array.length < 16) {
 
     random_number = generateRandomInt(1, 100);
@@ -32,6 +34,8 @@ my_button.addEventListener("click", function(){
 
     if (easy_medium_hard == 1) {
 
+        let counter = 0;
+
         for (let i = 1; i < 101; i++) {
 
             const cell = document.createElement("div");
@@ -39,12 +43,36 @@ my_button.addEventListener("click", function(){
             cell.innerHTML = i;
             main.append(cell);
 
-            cell.addEventListener("click", primary_danger);
+            cell.addEventListener("click", function() {
+
+                if(!isGameRunning) {
+
+                    return;
+            
+                }
+            
+                    if (!empty_array.includes(parseInt(this.innerHTML))) {
+                        this.classList.add("bg-primary");
+                        score++;
+                        if (score == 100 - 16) {
+                            alert(`HAI VINTO!`)
+                        }
+                    }
+            
+                    else {
+                        this.classList.add("bg-danger");
+                        isGameRunning = false;
+                        alert(`HAI PERSO! Il tuo punteggio è di ${score}`)
+                    }
+            
+                console.log(this.innerHTML);
+
+            })
         }
     }
 
     else if (easy_medium_hard == 2) {
-        
+            
         for (let i = 1; i < 82; i++) {
 
             const cell = document.createElement("div");
@@ -52,7 +80,31 @@ my_button.addEventListener("click", function(){
             cell.innerHTML = i;
             main.append(cell);
 
-            cell.addEventListener("click", primary_danger);
+            cell.addEventListener("click", function() {
+
+                if(!isGameRunning) {
+
+                    return;
+            
+                }
+            
+                    if (!empty_array.includes(parseInt(this.innerHTML))) {
+                        this.classList.add("bg-primary");
+                        score++;
+                        if (score == 81 - 16) {
+                            alert(`HAI VINTO!`);
+                        }
+                    }
+            
+                    else {
+                        this.classList.add("bg-danger");
+                        isGameRunning = false;
+                        alert(`HAI PERSO! Il tuo punteggio è di ${score}`);
+                    }
+            
+                console.log(this.innerHTML);
+                
+            });
         }
     }
 
@@ -65,7 +117,31 @@ my_button.addEventListener("click", function(){
             cell.innerHTML = i;
             main.append(cell);
 
-            cell.addEventListener("click", primary_danger);
+            cell.addEventListener("click", function(){
+
+                if(!isGameRunning) {
+
+                    return;
+            
+                }
+            
+                    if (!empty_array.includes(parseInt(this.innerHTML))) {
+                        this.classList.add("bg-primary");
+                        score++;
+                        if (score == 49 - 16) {
+                            alert(`HAI VINTO!`);
+                        }
+                    }
+            
+                    else {
+                        this.classList.add("bg-danger");
+                        isGameRunning = false;
+                        alert(`HAI PERSO! Il tuo punteggio è di ${score}`);
+                    }
+            
+                console.log(this.innerHTML);
+                
+            });
         }
     }
 })
@@ -75,33 +151,6 @@ my_button.addEventListener("click", function(){
 function generateRandomInt(min, max) {
 
     return Math.floor((Math.random() * (max + 1 - min)) + min);
-
-}
-
-function primary_danger() {
-
-    if(!isGameRunning) {
-        
-        alert("GAME OVER");
-
-        return;
-
-    }
-
-    for (let i = 0; i < empty_array.length; i++) {
-
-        if (this.innerHTML != empty_array[i]) {
-            this.classList.add("bg-primary");
-        }
-
-        else {
-            this.classList.add("bg-danger");
-            isGameRunning = false;
-        }
-        
-    }
-
-    console.log(this.innerHTML);
 
 }
 

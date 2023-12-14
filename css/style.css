@@ -19,3 +19,7 @@
     height: calc(1000px / 7);
     line-height: calc(1000px / 7);
 }
+
+.bomb {
+    background-color: red;
+}
