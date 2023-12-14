@@ -1,21 +1,24 @@
-const empty_array = [];
+const bomb_array = [];
 
 let isGameRunning = true;
 
 let score = 0;
 
-while (empty_array.length < 16) {
+while (bomb_array.length < 16) {
 
     random_number = generateRandomInt(1, 100);
 
-    let found_in_array = empty_array.includes(random_number);
+    let found_in_array = bomb_array.includes(random_number);
 
     if (found_in_array == false) {
-        empty_array.push(random_number);
+
+        bomb_array.push(random_number);
+        
     }
+
 }
 
-console.log(empty_array);
+console.log(bomb_array);
 
 // ----------------------------
 
@@ -51,18 +54,23 @@ my_button.addEventListener("click", function(){
             
                 }
             
-                    if (!empty_array.includes(parseInt(this.innerHTML))) {
+                    if (!bomb_array.includes(parseInt(this.innerHTML))) {
+
                         this.classList.add("bg-primary");
                         score++;
+
                         if (score == 100 - 16) {
                             alert(`HAI VINTO!`)
                         }
+
                     }
             
                     else {
+
                         this.classList.add("bg-danger");
                         isGameRunning = false;
                         alert(`HAI PERSO! Il tuo punteggio è di ${score}`)
+
                     }
             
                 console.log(this.innerHTML);
@@ -88,7 +96,7 @@ my_button.addEventListener("click", function(){
             
                 }
             
-                    if (!empty_array.includes(parseInt(this.innerHTML))) {
+                    if (!bomb_array.includes(parseInt(this.innerHTML))) {
                         this.classList.add("bg-primary");
                         score++;
                         if (score == 81 - 16) {
@@ -125,7 +133,7 @@ my_button.addEventListener("click", function(){
             
                 }
             
-                    if (!empty_array.includes(parseInt(this.innerHTML))) {
+                    if (!bomb_array.includes(parseInt(this.innerHTML))) {
                         this.classList.add("bg-primary");
                         score++;
                         if (score == 49 - 16) {
