@@ -1,0 +1,21 @@
+#grid {
+    max-width: 1000px;
+}
+
+.square-100 {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.square-81 {
+    width: calc(1000px / 9);
+    height: calc(1000px / 9);
+    line-height: calc(1000px / 9);
+}
+
+.square-49 {
+    width: calc(1000px / 7);
+    height: calc(1000px / 7);
+    line-height: calc(1000px / 7);
+}
