@@ -38,7 +38,17 @@ my_button.addEventListener("click", function(){
             main.append(cell);
 
             cell.addEventListener("click", function(){
-                this.classList.add("bg-primary");
+
+                for (i = 0; i < empty_array.length; i++) {
+                    if (this.innerHTML == empty_array[i]) {
+                        this.classList.add("bg-danger");
+                    }
+
+                    else {
+                        this.classList.add("bg-primary");
+                    }
+                }
+
                 console.log(cell.innerHTML);
             })
         }
@@ -54,7 +64,17 @@ my_button.addEventListener("click", function(){
             main.append(cell);
 
             cell.addEventListener("click", function(){
-                this.classList.add("bg-primary");
+                
+                for (i = 0; i < empty_array.length; i++) {
+                    if (this.innerHTML == empty_array[i]) {
+                        this.classList.add("bg-danger");
+                    }
+
+                    else {
+                        this.classList.add("bg-primary");
+                    }
+                }
+                
                 console.log(cell.innerHTML);
             })
         }
@@ -70,7 +90,17 @@ my_button.addEventListener("click", function(){
             main.append(cell);
 
             cell.addEventListener("click", function(){
-                this.classList.add("bg-primary");
+                
+                for (i = 0; i < empty_array.length; i++) {
+                    if (this.innerHTML == empty_array[i]) {
+                        this.classList.add("bg-danger");
+                    }
+
+                    else {
+                        this.classList.add("bg-primary");
+                    }
+                }
+                
                 console.log(cell.innerHTML);
             })
         }
