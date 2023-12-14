@@ -1,5 +1,7 @@
 const empty_array = [];
 
+let isGameRunning = true;
+
 while (empty_array.length < 16) {
 
     random_number = generateRandomInt(1, 100);
@@ -30,79 +32,40 @@ my_button.addEventListener("click", function(){
 
     if (easy_medium_hard == 1) {
 
-        for (i = 1; i < 101; i++) {
+        for (let i = 1; i < 101; i++) {
 
             const cell = document.createElement("div");
             cell.classList.add("square", "border", "border-black", "text-center");
             cell.innerHTML = i;
             main.append(cell);
 
-            cell.addEventListener("click", function(){
-
-                for (i = 0; i < empty_array.length; i++) {
-                    if (this.innerHTML == empty_array[i]) {
-                        this.classList.add("bg-danger");
-                    }
-
-                    else {
-                        this.classList.add("bg-primary");
-                    }
-                }
-
-                console.log(cell.innerHTML);
-            })
+            cell.addEventListener("click", primary_danger);
         }
     }
 
     else if (easy_medium_hard == 2) {
         
-        for (i = 1; i < 82; i++) {
+        for (let i = 1; i < 82; i++) {
 
             const cell = document.createElement("div");
             cell.classList.add("square-2", "border", "border-black", "text-center");
             cell.innerHTML = i;
             main.append(cell);
 
-            cell.addEventListener("click", function(){
-                
-                for (i = 0; i < empty_array.length; i++) {
-                    if (this.innerHTML == empty_array[i]) {
-                        this.classList.add("bg-danger");
-                    }
-
-                    else {
-                        this.classList.add("bg-primary");
-                    }
-                }
-                
-                console.log(cell.innerHTML);
-            })
+            cell.addEventListener("click", primary_danger);
         }
     }
 
     else if (easy_medium_hard == 3) {
 
-        for (i = 1; i < 50; i++) {
+        for (let i = 1; i < 50; i++) {
 
             const cell = document.createElement("div");
             cell.classList.add("square-3", "border", "border-black", "text-center");
             cell.innerHTML = i;
             main.append(cell);
 
-            cell.addEventListener("click", function(){
-                
-                for (i = 0; i < empty_array.length; i++) {
-                    if (this.innerHTML == empty_array[i]) {
-                        this.classList.add("bg-danger");
-                    }
-
-                    else {
-                        this.classList.add("bg-primary");
-                    }
-                }
-                
-                console.log(cell.innerHTML);
-            })
+            cell.addEventListener("click", primary_danger);
         }
     }
 })
@@ -110,7 +73,36 @@ my_button.addEventListener("click", function(){
 // FUNCTION
 
 function generateRandomInt(min, max) {
+
     return Math.floor((Math.random() * (max + 1 - min)) + min);
+
+}
+
+function primary_danger() {
+
+    if(!isGameRunning) {
+        
+        alert("GAME OVER");
+
+        return;
+
+    }
+
+    for (let i = 0; i < empty_array.length; i++) {
+
+        if (this.innerHTML != empty_array[i]) {
+            this.classList.add("bg-primary");
+        }
+
+        else {
+            this.classList.add("bg-danger");
+            isGameRunning = false;
+        }
+        
+    }
+
+    console.log(this.innerHTML);
+
 }
 
 
