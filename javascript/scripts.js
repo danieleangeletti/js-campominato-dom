@@ -1,3 +1,20 @@
+const empty_array = [];
+
+while (empty_array.length < 16) {
+
+    random_number = generateRandomInt(1, 100);
+
+    let found_in_array = empty_array.includes(random_number);
+
+    if (found_in_array == false) {
+        empty_array.push(random_number);
+    }
+}
+
+console.log(empty_array);
+
+// ----------------------------
+
 const difficulty = document.getElementById("choice-of-difficulty");
 
 const my_button = document.getElementById("play-button");
@@ -59,6 +76,12 @@ my_button.addEventListener("click", function(){
         }
     }
 })
+
+// FUNCTION
+
+function generateRandomInt(min, max) {
+    return Math.floor((Math.random() * (max + 1 - min)) + min);
+}
 
 
 
