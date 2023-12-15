@@ -1,10 +1,10 @@
 const my_button = document.getElementById("play-button");
 
-let is_game_running = true;
-
-let score = 0;
-
 my_button.addEventListener("click", function(){
+
+    let score = 0;
+
+    let is_game_running = true;
 
     const difficulty_level = parseInt(document.getElementById("choice-of-difficulty").value);
     
@@ -44,19 +44,24 @@ my_button.addEventListener("click", function(){
             if (is_game_running == true) {
 
                 if (!bomb_array.includes(parseInt(this.innerHTML))) {
+
                     this.classList.add("bg-primary");
                     score ++;
 
                     if (score == difficulty_level - 16) {
+
                         is_game_running = false;
                         alert("HAI VINTO!");
+                        
                     }
                 }
 
                 else {
+
                     this.classList.add("bg-danger");
                     is_game_running = false;
                     alert(`GAME OVER! Il tuo punteggio è di ${score}`);
+
                 }
             }
         })
