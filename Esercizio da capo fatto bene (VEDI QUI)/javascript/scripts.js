@@ -45,8 +45,10 @@ my_button.addEventListener("click", function(){
 
                 if (!bomb_array.includes(parseInt(this.innerHTML))) {
 
-                    this.classList.add("bg-primary");
-                    score ++;
+                    if (!this.classList.contains("bg-primary")) {
+                        this.classList.add("bg-primary");
+                        score ++;
+                    }
 
                     if (score == difficulty_level - 16) {
 
